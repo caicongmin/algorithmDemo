@@ -20,17 +20,29 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        let drawNode = this.node.getChildByName("drawNode");
-        let pen = drawNode.getComponent(cc.Graphics);
-        pen.lineWidth = 1;
-        
-        pen.rect(0, 0, 100, 100);
-        pen.stroke();
-        pen.fill();
+
     }
 
     start () {
+        this.drawRect();
+    }
 
+    getPen(width : number = 1) {
+        let drawNode = this.node.getChildByName("drawNode");
+        let pen = drawNode.getComponent(cc.Graphics);
+        pen.lineWidth = width;
+        return pen;
+    }
+    drawRect() {
+
+        let pen = this.getPen(1);
+        pen.rect(200, 0, 100, 100);
+        pen.stroke();
+        pen.fill();
+        let pen2 = this.getPen(10);
+        pen2.rect(0, 0, 100, 100);
+        pen2.stroke();
+        pen2.fill();
     }
 
     // update (dt) {}
