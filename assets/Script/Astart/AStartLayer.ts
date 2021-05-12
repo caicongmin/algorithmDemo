@@ -66,7 +66,7 @@ export default class AStartLayer extends cc.Component {
                 mapArr[i][j] = this.drawNode.convertToNodeSpaceAR(cc.v2(rowWidth * i + rowWidth / 2, colHeight * j + colHeight / 2));
             }
         }
-        Player.mapArr = mapArr;
+        Player.initMap(mapArr, row, col);
     }
 
     initPlayer() {
@@ -74,7 +74,7 @@ export default class AStartLayer extends cc.Component {
         selfPlayer.parent = this.drawNode;
         this.selfPlayer = selfPlayer.getComponent(Player);
         this.selfPlayer.setPos(5, 8);
-        this.selfPlayer.setColor(cc.color(255, 255, 0));
+        this.selfPlayer.setColor(cc.color(255, 255, 0), true);
     }
 
     // update (dt) {}
