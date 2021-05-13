@@ -1,4 +1,5 @@
 import Player from './Player';
+import MapManger from './MapManger';
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
@@ -24,7 +25,7 @@ export default class AStartLayer extends cc.Component {
         this.drawNode = this.node.getChildByName("drawNode");
     }
     onDestroy() {
-        Player.cleanMap();
+        MapManger.cleanMap();
     }
 
     start() {
@@ -69,7 +70,7 @@ export default class AStartLayer extends cc.Component {
                 mapArr[i][j] = this.drawNode.convertToNodeSpaceAR(cc.v2(rowWidth * i + rowWidth / 2, colHeight * j + colHeight / 2));
             }
         }
-        Player.initMap(mapArr, row, col);
+        MapManger.initMap(mapArr, row, col);
     }
 
     initPlayer() {

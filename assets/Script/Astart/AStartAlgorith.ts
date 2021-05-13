@@ -15,4 +15,7 @@ export default class AStartAlgorith {
     closeList: Array<AStartNode> = [];  //关闭列表
     path:Array<AStartNode> = [];    //路径
 
+    startNode:AStartNode = null;
+    endNode:AStartNode = null;
+    
 }
