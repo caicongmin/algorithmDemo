@@ -23,6 +23,9 @@ export default class AStartLayer extends cc.Component {
     onLoad() {
         this.drawNode = this.node.getChildByName("drawNode");
     }
+    onDestroy() {
+        Player.cleanMap();
+    }
 
     start() {
         this.drawRect(10, 10);
@@ -73,8 +76,15 @@ export default class AStartLayer extends cc.Component {
         let selfPlayer = cc.instantiate(this.PlayerPrefab);
         selfPlayer.parent = this.drawNode;
         this.selfPlayer = selfPlayer.getComponent(Player);
-        this.selfPlayer.setPos(5, 8);
+        this.selfPlayer.getRandomPos();
         this.selfPlayer.setColor(cc.color(255, 255, 0), true);
+
+        let enemyPlayer = cc.instantiate(this.PlayerPrefab);
+        enemyPlayer.parent = this.drawNode;
+        this.enemyPlayer = enemyPlayer.getComponent(Player);
+        this.enemyPlayer.getRandomPos();
+        this.enemyPlayer.setColor(cc.color(255, 0, 0));
+
     }
 
     // update (dt) {}

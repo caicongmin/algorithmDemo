@@ -14,12 +14,28 @@ export default class Player extends cc.Component {
     public static mapArr: Array<Array<cc.Vec2>> = [];
     public static mapWidth: number = 0;
     public static mapHeight: number = 0;
+    public static playerPosArr = [];
     public static initMap(mapArr: Array<Array<cc.Vec2>>, w: number, h: number) {
         this.mapArr = mapArr;
         this.mapWidth = w;
         this.mapHeight = h;
     }
-
+    static cleanMap() {
+        this.mapArr = [];
+        this.mapWidth = 0;
+        this.mapHeight = 0;
+        this.playerPosArr = [];    
+    }
+    static isHavePos(pos) {
+        let res = false;
+        for(let i = 0; i < this.playerPosArr.length; i++) {
+            if (this.playerPosArr[i].x == pos.x && this.playerPosArr[i].y == pos.y) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
     posX: number = 0;
     posY: number = 0;
     onLoad() {
@@ -34,6 +50,18 @@ export default class Player extends cc.Component {
 
     onDestroy() {
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+    }
+    getRandomPos() {
+        let x = Math.floor(Math.random() * Player.mapWidth);
+        let y = Math.floor(Math.random() * Player.mapHeight);
+
+        if(!Player.isHavePos(cc.v2(x, y))) {
+            Player.playerPosArr.push(cc.v2(x, y));
+            this.setPos(x, y);
+        } else {
+            this.getRandomPos();
+        }
+      
     }
     setPos(x: number, y: number) {
         this.posX = x;
