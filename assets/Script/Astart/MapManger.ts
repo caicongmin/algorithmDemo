@@ -15,11 +15,11 @@ export default class MapManger {
         this.mapArr = [];
         this.mapWidth = 0;
         this.mapHeight = 0;
-        this.playerPosArr = [];    
+        this.playerPosArr = [];
     }
     static isHavePos(pos) {
         let res = false;
-        for(let i = 0; i < this.playerPosArr.length; i++) {
+        for (let i = 0; i < this.playerPosArr.length; i++) {
             if (this.playerPosArr[i].x == pos.x && this.playerPosArr[i].y == pos.y) {
                 res = true;
                 break;
@@ -27,7 +27,4 @@ export default class MapManger {
         }
         return res;
     }
-
-
-    // update (dt) {}
 }
