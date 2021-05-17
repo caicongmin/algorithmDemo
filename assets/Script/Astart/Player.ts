@@ -13,6 +13,7 @@ export enum OriginCommon {
 export default class Player extends cc.Component {
     posX: number = 0;
     posY: number = 0;
+
     onLoad() {
      
     }

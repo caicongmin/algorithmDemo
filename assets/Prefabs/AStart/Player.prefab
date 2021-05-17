@@ -116,6 +116,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "speed": 2,
+    "speed2": 2,
+    "speed3": 3,
     "_id": ""
   },
   {
