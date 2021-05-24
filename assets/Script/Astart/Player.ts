@@ -15,7 +15,6 @@ export default class Player extends cc.Component {
     posY: number = 0;
 
     onLoad() {
-     
     }
     setColor(color: cc.Color, isSelf:boolean = false) {
         this.node.color = color;
