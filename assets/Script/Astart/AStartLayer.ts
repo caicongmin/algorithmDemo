@@ -85,7 +85,7 @@ export default class AStartLayer extends cc.Component {
         this.enemyPlayer = enemyPlayer.getComponent(Player);
         this.enemyPlayer.getRandomPos();
         this.enemyPlayer.setColor(cc.color(255, 0, 0));
-
+        
     }
 
     // update (dt) {}
